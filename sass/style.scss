@@ -1,0 +1,539 @@
+@import "compass";
+
+@import "vars";
+@import "theme_info";
+
+@import 'susy'; 
+
+
+@import "breakpoint";
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800);
+
+// Configuring Susy defaults
+$susy: (
+  flow: ltr,
+  math: fluid,
+  output: float,
+  gutter-position: after,
+  container: auto,
+  container-position: center,
+  columns: 7,
+  gutters: .1,
+  column-width: false,
+  global-box-sizing: content-box,
+  last-flow: to,
+  debug: (
+    image: hide,
+    color: rgba(#66f, .25),
+    output: background,
+    toggle: top right,
+  ),
+  use-custom: (
+    background-image: true,
+    background-options: false,
+    box-sizing: true,
+    clearfix: false,
+    rem: true,
+  )
+);
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+#content {
+
+  font-family: 'Open Sans', sans-serif;
+  
+  @include container(80%);
+  border:1px solid #c7c8c8 ;
+
+  .logo{
+  	text-align: left;
+
+    img{
+      margin: 1%;
+    }
+
+  	h1{
+      display: none;
+  	}
+  }
+
+  .search{
+
+    padding:1%;
+    height:61px;
+
+    
+    div:first-child{
+      @include span(50%) ;  
+      
+    }
+
+      
+    div:nth-child(2) {
+      @include span(24%) ;  
+      background:orange;
+      padding:0;
+      margin:0;
+    }
+    
+    
+    div:nth-child(3) {
+      @include span(24% of last) ;  
+      background:pink;
+      
+    }
+    
+
+    input{
+      font-family: 'Open Sans';
+      font-size: 1em;
+      height: 2em;
+      padding:1%;
+      width: 95%;
+    }
+
+    select.styled-select {
+       -webkit-appearance: button;
+       -webkit-border-radius: 2px;
+       -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+       -webkit-padding-end: 20px;
+       -webkit-padding-start: 2px;
+       -webkit-user-select: none;
+       background-image: url(http://i62.tinypic.com/15xvbd5.png);
+       background-position: 97% center;
+       background-repeat: no-repeat;
+       border: 1px solid #AAA;
+       color: #555;
+       font-size: inherit;
+       overflow: hidden;
+       padding: 12px;
+       text-overflow: ellipsis;
+       white-space: nowrap;
+       width: 100%;
+    }
+
+
+  }
+
+
+  ul.cyclists{
+  	list-style: none;
+  	margin: 0;
+  	padding: 0;
+
+    //give the first li a light grey bg color
+    li.cyclist:nth-child(1) {
+      background: #3baeda;
+      color: #fff;
+      text-transform: uppercase !important;
+      
+      ul li:first-child{
+        color: #FFF !important;
+      }
+      ul li:first-child:hover, ul li:nth-child(5):hover, ul li:nth-child(6):hover{
+        cursor:pointer;
+        color: #c8203e !important;
+      }
+
+      ul li:first-child:after{
+        content:'';
+      }
+      ul li:nth-child(4){
+        color: #FFF !important;
+      }
+    
+      ul li.active span.ti-angle-up,ul li.active span.ti-angle-down{
+        //visibility: visible;
+        display: inline;
+      }
+
+      ul li.active span.ti-arrows-vertical{
+        display: none !important;
+      }
+
+      ul li.inactive span.ti-angle-up, ul li.inactive span.ti-angle-down {
+        //visibility: hidden;
+        display: none;
+      }
+
+      ul li.inactive span.ti-arrows-vertical{
+        display: inline !important;
+      }
+      
+
+    }
+
+  	// $elements: 215;
+  	// @for $i from 0 to $elements {
+  	//   li.cyclist:nth-child(#{$i}) {
+  	//   	 $temp:	100/215;
+  	//   	 background: rgb(255-$i, 10 , 5);
+  	  	 
+  	//   }
+  	// }		
+	
+  	li.cyclist{
+  		border-bottom: 1px solid #CCC;
+      text-transform: lowercase;
+      text-transform: capitalize;
+      padding-top:1%;
+      padding-bottom:1%;
+      
+  	}
+
+  	li ul{
+  		@include horizontal-list;
+  		list-style: none;
+  		
+
+    	li{
+  			margin: 0;
+  			padding:0;
+  			white-space: normal;	
+  			display: inline-block;
+
+      }
+
+      li:first-child{
+        @include span(10%) ;       
+        text-align: center;
+        color: #c8203e;
+      }
+
+      li:nth-child(2){
+        text-align: center;
+        @include span(10%) ;  
+      }
+
+      li:nth-child(3){
+        @include span(5%) ;  
+      }
+
+      
+      li:nth-child(4){
+        @include span(25%) ;  
+        color: #3baeda;
+
+      }
+      
+      li:nth-child(5){
+        @include span(20%) ;  
+         //@include span(35%) ; 
+        text-align: center;
+      }
+      
+      li:nth-child(6){
+        text-align: center;
+        @include span(10%) ;  
+         //@include span(35%) ; 
+      }
+
+
+  		li:last-child{
+        text-align: center;
+        //@include span(1 of 6 last) ; 
+			  @include span(10% last) ;
+      } 
+
+
+  	}
+  }
+
+
+  [class^="ti-"], [class*=" ti-"] {
+    position:relative;
+    top:2px;
+  }
+
+  .ti-angle-double-up{
+    color: #35b44a;
+  }
+
+  .ti-angle-double-down{
+    color: #c8203e;
+  }
+
+  .dash:after{
+    content: ' - ';
+    position:relative;
+    left:6px;
+  }
+
+  .country{
+     background-repeat: no-repeat;
+     background-position:center;
+     background-size: 36px 25px;
+  }
+
+  .australia{
+      background-image: url("images/aus.svg");
+  }
+
+  .great.britain{
+      background-image: url("images/gbr.svg");
+  }
+
+  .switzerland{
+      background-image: url("images/sui.svg"); 
+  }
+
+  .spain{
+      background-image: url("images/esp.svg"); 
+  }
+
+  .japan{
+    background-image: url("images/jpn.svg"); 
+  }
+
+  .czech.republic{
+   background-image: url("images/cze.svg");  
+  }
+
+  .france{
+   background-image: url("images/fra.svg");  
+  }
+
+  .canada{
+   background-image: url("images/can.svg");  
+  }
+
+  .united.states{
+   background-image: url("images/usa.svg");  
+  }
+
+ .croatia{
+   background-image: url("images/cro.svg");  
+  }
+
+ .south.africa{
+   background-image: url("images/rsa.svg");  
+  }
+
+  .belgium{
+   background-image: url("images/bel.svg");  
+  }
+
+  .austria{
+   background-image: url("images/aut.svg");  
+  }
+
+  .italy{
+   background-image: url("images/ita.svg");  
+  }
+
+  .bulgaria{
+   background-image: url("images/bul.svg");  
+  }
+
+  .ukraine{
+   background-image: url("images/ukr.svg");  
+  }
+
+  .portugal{
+   background-image: url("images/por.svg");  
+  }
+
+  .germany{
+   background-image: url("images/ger.svg");  
+  }
+
+  .brazil{
+   background-image: url("images/bra.svg");  
+  }
+
+  .uruguay{
+   background-image: url("images/uru.svg");  
+  }
+
+  .argentina{
+   background-image: url("images/arg.svg");  
+  }
+
+  .luxembourg{
+   background-image: url("images/arg.svg");  
+  }
+
+  .russia{
+   background-image: url("images/rus.svg");  
+  }
+
+  .cyprus{
+   background-image: url("images/cyp.svg");  
+  }
+
+  .korea{
+   background-image: url("images/kor.svg");  
+  }
+
+  .domenican.republic{
+   background-image: url("images/dom.svg");  
+  }
+
+  .Uzbekistan{
+   background-image: url("images/uzb.svg");  
+  }
+
+  .colombia{
+   background-image: url("images/col.svg");  
+  }
+
+  .poland{
+   background-image: url("images/pol.svg");  
+  }
+
+  .latvia{
+   background-image: url("images/lat.svg");  
+  }
+
+  .chinese.taipei{
+   background-image: url("images/tpe.svg");  
+  }
+
+  .israel{
+   background-image: url("images/isr.svg");  
+  }
+
+  .kazakhstan{
+   background-image: url("images/kaz.svg");  
+  }
+
+  .netherlands{
+   background-image: url("images/ned.svg");  
+  }
+
+  .china{
+   background-image: url("images/chn.svg");  
+  }
+
+  .chinese.taipei{
+   background-image: url("images/tpe.svg");  
+  }
+
+  .ireland{
+   background-image: url("images/ire.svg");  
+  }
+
+  .new.zealand{
+   background-image: url("images/nze.svg");  
+  }
+
+  .lithuania{
+   background-image: url("images/lth.svg");  
+  }
+
+  .norway{
+   background-image: url("images/no.svg");  
+  }
+
+  .iran{
+   background-image: url("images/in.svg");  
+  }
+
+  .mongolia{
+   background-image: url("images/mn.svg");  
+  }
+
+  .eritrea{
+   background-image: url("images/er.svg");  
+  }
+
+  .vietnam{
+   background-image: url("images/vn.svg");  
+  }
+
+  .morocco{
+   background-image: url("images/ma.svg");  
+  }
+
+  .belarus{
+   background-image: url("images/by.svg");  
+  }
+
+  .costa.rica{
+   background-image: url("images/cr.svg");  
+  }
+
+  .venezuela{
+   background-image: url("images/ve.svg");  
+  }
+
+  .kyrgyzstan{
+   background-image: url("images/kg.svg");  
+  }
+
+  .sweden{
+   background-image: url("images/se.svg");  
+  }
+
+  .denmark{
+   background-image: url("images/dk.svg");  
+  }
+
+  .saudi.arabia{
+   background-image: url("images/dk.svg");  
+  }
+
+  .egypt{
+   background-image: url("images/eg.svg");  
+  }
+
+  .estonia{
+   background-image: url("images/ee.svg");  
+  }
+
+  .thailand{
+   background-image: url("images/th.svg");  
+  }
+
+  .slovakia{
+   background-image: url("images/sk.svg");  
+  }
+
+  .uzbekistan{
+   background-image: url("images/uz.svg");  
+  }
+
+  .ethiopia{
+   background-image: url("images/et.svg");  
+  }
+
+  .rwanda{
+   background-image: url("images/rw.svg");  
+  }
+
+  .tunisia{
+   background-image: url("images/tn.svg");  
+  }
+
+  .india{
+   background-image: url("images/ind.svg");  
+  }
+
+  .mexico{
+   background-image: url("images/mx.svg");  
+  }
+
+  .cameroon{
+   background-image: url("images/cm.svg");  
+  }
+
+  .slovenia{
+   background-image: url("images/cm.svg");  
+  }
+
+  .algeria{
+   background-image: url("images/dz.svg");  
+  }
+
+  
+  
+}
+
+

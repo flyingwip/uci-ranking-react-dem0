@@ -1,0 +1,46 @@
+<html>
+
+<head>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+<script>
+ 
+  $( document ).ready(function() {
+
+
+  	function blaat() {
+    console.log('loadRankingssFromServer');
+    $.ajax({
+      url: 'ranking.php',
+      dataType: 'json',
+      cache: true,
+      success: function(data) {
+      	console.log(data);
+        //this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(err.toString());
+        //console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  }	
+  blaat();
+    //$( "p" ).text( "The DOM is now loaded and can be manipulated." );
+  });
+ 
+  </script>
+
+</head>
+
+<body>
+
+<p>
+</p>	
+
+
+</body>	
+
+</html>
