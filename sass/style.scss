@@ -57,6 +57,7 @@ $susy: (
     position: relative;
     top: 82px;
     margin-top: -83px;
+    pointer-events:none;
 
     img{
       margin: 1%;
@@ -73,6 +74,20 @@ $susy: (
       padding-bottom:10px;
       display: none;
   	}
+  }
+
+  .sponsered-by{
+    text-align: right;
+    text-transform: uppercase;
+
+    a{
+      color: #CCC;
+      font-size:12px !important;
+    }
+
+    a:hover{
+      color: #3baeda;
+    }
   }
 
   .border-box{

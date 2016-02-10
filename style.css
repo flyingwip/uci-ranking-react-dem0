@@ -29,6 +29,7 @@ Tags: responsive-layout, post-formats
   position: relative;
   top: 82px;
   margin-top: -83px;
+  pointer-events: none;
 }
 #content .logo img {
   margin: 1%;
@@ -43,6 +44,17 @@ Tags: responsive-layout, post-formats
   border-bottom: 1px solid #CCC;
   padding-bottom: 10px;
   display: none;
+}
+#content .sponsered-by {
+  text-align: right;
+  text-transform: uppercase;
+}
+#content .sponsered-by a {
+  color: #CCC;
+  font-size: 12px !important;
+}
+#content .sponsered-by a:hover {
+  color: #3baeda;
 }
 #content .border-box {
   border: 1px solid #CCC;
