@@ -96,6 +96,7 @@ var CyclistsList = React.createClass({
       column = 4;
     }
     (column>0) ? this.props.data.sort(compareColumnByNr(column,order)) : this.props.data.sort(compareColumnByValue(column,order));
+    
     (this.state.order=='ASC') ? this.setState({order: 'DESC'}) : this.setState({order: 'ASC'});
     
   },
@@ -134,8 +135,8 @@ var Logo = React.createClass({
   render: function() {
     return (
       <div className="logo">
-        <img src="images/logo.png" />
-        <h1>Ranking</h1>
+        <img src="images/ranking_logo@0,5x.jpg" />
+        <h1>unofficial ranking of CC </h1>
       </div>
     );
   }
@@ -148,7 +149,6 @@ var Search = React.createClass({
     getInitialState: function() {
     return {textInput: ''};
   },
-
 
   handleChange: function (e) {
 
@@ -319,8 +319,10 @@ var UCIRanking = React.createClass({
   },
   
 handleUserInput: function (filterText) {
+    
     this.setState({filterColumn: 2});
     this.setState({filterText: filterText});
+
   },  
 
 handleCountryInput: function (counryFilter,filterColumn) {
@@ -339,8 +341,10 @@ handleCountryInput: function (counryFilter,filterColumn) {
     return (
       <div className="rankingBox">
         <Logo/>
-        <Search data={this.state.data} onUserInput={this.handleUserInput} onCountryInput={this.handleCountryInput}  />
-        <CyclistsList data={this.state.data} filterText={this.state.filterText}  filterColumn={this.state.filterColumn}  />
+        <div className="border-box">  
+          <Search data={this.state.data} onUserInput={this.handleUserInput} onCountryInput={this.handleCountryInput}  />
+          <CyclistsList data={this.state.data} filterText={this.state.filterText}  filterColumn={this.state.filterColumn}  />
+        </div>  
       </div>
     );
   }

@@ -1772,7 +1772,7 @@ $weeknr_uci = 1428678 + $weeknr_current_date-1;
 
 //the url
 //$api_url = 'http://www.uci.html.infostradasports.com/cache/2/TheASP.asp@PageID=19007&TaalCode=2&StyleID=0&SportID=102&CompetitionID=27323&EventID=12146&GenderID=1&ClassID=1&SeasonID=490&EventPhaseID=1428675&Phase1ID=1428682&ContainerEventID=12146&Detail=1&PageNr0=-1&Cache=2.html';
-$api_url = 'http://www.uci.html.infostradasports.com/cache/2/TheASP.asp@PageID=19007&TaalCode=2&StyleID=0&SportID=102&CompetitionID=27323&EventID=12146&GenderID=1&ClassID=1&SeasonID=490&EventPhaseID=1428675&Phase1ID='.$weeknr_uci.'&ContainerEventID=12146&Detail=1&PageNr0=-1&Cache=2.html';
+//$api_url = 'http://www.uci.html.infostradasports.com/cache/2/TheASP.asp@PageID=19007&TaalCode=2&StyleID=0&SportID=102&CompetitionID=27323&EventID=12146&GenderID=1&ClassID=1&SeasonID=490&EventPhaseID=1428675&Phase1ID='.$weeknr_uci.'&ContainerEventID=12146&Detail=1&PageNr0=-1&Cache=2.html';
 
 //echo $api_url; 
 
